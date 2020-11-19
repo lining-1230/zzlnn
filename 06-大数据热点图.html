@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热点图</title>
+    <style>
+        .box {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: rgb(29, 29, 31);
+        }
+
+        .city {
+            position: absolute;
+            top: 100px;
+            left: 180px;
+            margin: 100px 200px;
+        }
+
+        .box1 {
+            width: 8px;
+            height: 8px;
+            background-color: royalblue;
+            border-radius: 50%;
+        }
+
+        .box2,
+        .box3,
+        .box4 {
+            /* 保证盒子在父盒子里垂直水平居中 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 子盒子加浮动，定位在一个点上重叠 */
+            float: left;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            /* 设置阴影比边框效果要好看 */
+            box-shadow: 0 0 12px royalblue;
+            /* 调用动画 */
+            animation: mafix 1.2s infinite;
+        }
+
+        .city .box3 {
+            /* 三个子盒子的放大开始时间给一个间隔 */
+            animation: mafix 2s linear .4s infinite;
+        }
+
+        .city .box4 {
+            animation: mafix 2s linear .8s infinite;
+        }
+
+        @keyframes mafix {
+            0% {
+                width: 8px;
+                height: 8px;
+                opacity: 1;
+            }
+
+            75% {
+                width: 30px;
+                height: 30px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="city">
+            <div class="box1"></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
+            <div class="box4"></div>
+
+        </div>
+    </div>
+</body>
+
+</html>
